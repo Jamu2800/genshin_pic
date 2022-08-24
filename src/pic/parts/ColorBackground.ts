@@ -1,7 +1,7 @@
 import {PartsConfigTypes} from "../../types/PartsConfigType";
-import colorBackgroundConfig from "../../json/colorBackgroundConfig.json"
 import {getCharacterByAvatarId} from "../../util/CharactersJsonUtil";
 import sharp from "sharp";
+import {colorBackgroundConfig} from "../../util/ColorBackgroundConfig";
 
 export const colorBackground: PartsConfigTypes = {
     imageName: (avatarInfo, uid) => {

@@ -1,6 +1,6 @@
 import {PartsConfigTypes} from "../types/PartsConfigType";
 import * as fs from "fs";
-import {AvatarInfo} from "../types/enka/enkaDataJsonTypes";
+import {AvatarInfo} from "../types/enka/dataTypes";
 import sharp, {OverlayOptions} from "sharp";
 
 export class PartsCreator {

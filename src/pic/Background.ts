@@ -1,4 +1,4 @@
-import {PartsCreator} from "./PartsCreator";
+import {SVGOption} from "../types/SVGOptions";
 
 export class Background{
     private readonly svgOption: SVGOption;
