@@ -1,0 +1,27 @@
+{
+  "name": "genshin_pic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./out/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.7.8",
+    "@types/sharp": "^0.30.5",
+    "@types/text-to-svg": "^3.1.1",
+    "canvas": "^2.9.3",
+    "node-fetch": "^2.6.6",
+    "sharp": "^0.30.7",
+    "text-to-svg": "^3.1.5",
+    "text2png": "^2.3.0",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.2"
+  }
+}
