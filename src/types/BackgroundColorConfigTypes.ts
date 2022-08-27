@@ -1,5 +1,5 @@
 import {Color} from "sharp";
 
-export type ColorBackgroundConfigTypes = {
+export type ElementBackgroundByElementTypes = {
     [key: string]: Color
 }

@@ -1,4 +1,5 @@
-import {ColorBackgroundConfigTypes} from "../types/ColorBackgroundConfigTypes";
-import cBackgroundConf from "../json/colorBackgroundConfig.json";
+import {ElementBackgroundByElementTypes} from "../types/BackgroundColorConfigTypes";
+import {colorBackground, artifactBackground} from "../json/backgroundColorConfig.json";
 
-export const colorBackgroundConfig: ColorBackgroundConfigTypes = cBackgroundConf;
+export const colorBackgroundConfig: ElementBackgroundByElementTypes = colorBackground;
+export const artifactBackgroundConfig: ElementBackgroundByElementTypes = artifactBackground;

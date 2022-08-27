@@ -34,17 +34,17 @@ export const main: PartsConfigTypes = {
         colorBackground,
         //character,
         footer,
-        //weapon,
+        weapon,
         //skill,
         //talent,
         //setBonus,
         //totalScore,
         //uid,
         //nameLv,
-        //artifactBracer,
-        //artifactNecklace,
-        //artifactShoes,
-        //artifactRing,
-        //artifactDress
+        artifactBracer,
+        artifactNecklace,
+        artifactShoes,
+        artifactRing,
+        artifactDress,
     ]
 }

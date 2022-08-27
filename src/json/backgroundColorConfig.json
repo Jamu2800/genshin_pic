@@ -1,0 +1,20 @@
+{
+  "colorBackground": {
+    "Ice": "#0e576f",
+    "Wind": "#145d5a",
+    "Electric": "#401253",
+    "Water": "#14275d",
+    "Rock": "#605114",
+    "Fire": "#670c0c",
+    "Grass": "#225d14"
+  },
+  "artifactBackground": {
+    "Ice": "white",
+    "Wind": "white",
+    "Electric": "white",
+    "Water": "white",
+    "Rock": "white",
+    "Fire": "white",
+    "Grass": "white"
+  }
+}

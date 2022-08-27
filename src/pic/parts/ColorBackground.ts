@@ -5,7 +5,7 @@ import {colorBackgroundConfig} from "../../util/ColorBackgroundConfig";
 
 export const colorBackground: PartsConfigTypes = {
     imageName: (avatarInfo, uid) => {
-        const baseImageName: string = "colorBackground_Element";
+        const baseImageName: string = "color_background_Element";
         const element: string = getCharacterByAvatarId(String(avatarInfo.avatarId)).Element;
 
         return baseImageName.replace("Element", element);
