@@ -1,3 +1,5 @@
+import {Color} from "sharp";
+
 export type SVGOption = {
     width: number,
     height: number,
@@ -19,6 +21,6 @@ export type RectOption = {
     height: number,
     rx: number,
     ry: number,
-    fill: string
+    fill: Color
     fillOpacity: number
 }
