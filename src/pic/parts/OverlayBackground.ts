@@ -3,6 +3,7 @@ import fetch from "node-fetch";
 import sharp from "sharp";
 
 export const overlayBackground: PartsConfigTypes = {
+    partsName: "overlay",
     imageName: "overlay_background",
     position: {
         top: 0,

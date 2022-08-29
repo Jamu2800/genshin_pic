@@ -14,12 +14,13 @@ import {weapon} from "./Weapon";
 import {footer} from "./Footer";
 
 export const main: PartsConfigTypes = {
+    partsName: "main",
     imageName: "main_background",
     position: {
         top: 0,
         left: 0
     },
-    partsCreate: async (avatarInfo, uid) => {
+    partsCreate: async (avatarInfo, uid, name) => {
         return sharp({
             create: {
                 width: 1920,

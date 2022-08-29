@@ -5,6 +5,7 @@ import {getCharacterByAvatarId} from "../../util/CharactersJsonUtil";
 import {artifactBackgroundConfig} from "../../util/ColorBackgroundConfig";
 
 const artifactParts: PartsConfigTypes = {
+    partsName: "artifact",
     imageName:  (avatarInfo, uid) => {
         const baseImageName: string = "artifact_background_Element";
         const element: string = getCharacterByAvatarId(String(avatarInfo.avatarId)).Element;
@@ -33,11 +34,12 @@ const artifactParts: PartsConfigTypes = {
                 }
             }
         })).png().toBuffer()
-    }
-    //parts: []
+    },
+    parts: []
 };
 
 export const artifactBracer: PartsConfigTypes = {
+    partsName: "artifactBracer",
     imageName: artifactParts.imageName,
     position: {
         top: 720,
@@ -48,6 +50,7 @@ export const artifactBracer: PartsConfigTypes = {
 };
 
 export const artifactNecklace: PartsConfigTypes = {
+    partsName: "artifactNecklace",
     imageName: artifactParts.imageName,
     position: {
         top: 720,
@@ -58,6 +61,7 @@ export const artifactNecklace: PartsConfigTypes = {
 };
 
 export const artifactShoes: PartsConfigTypes = {
+    partsName: "artifactShoes",
     imageName: artifactParts.imageName,
     position: {
         top: 720,
@@ -68,6 +72,7 @@ export const artifactShoes: PartsConfigTypes = {
 };
 
 export const artifactRing: PartsConfigTypes = {
+    partsName: "artifactRing",
     imageName: artifactParts.imageName,
     position: {
         top: 720,
@@ -78,6 +83,7 @@ export const artifactRing: PartsConfigTypes = {
 };
 
 export const artifactDress: PartsConfigTypes = {
+    partsName: "artifactDress",
     imageName: artifactParts.imageName,
     position: {
         top: 720,

@@ -1,11 +1,16 @@
-import {AvatarInfo} from "./enka/enkaDataJsonTypes";
+import {AvatarInfo} from "./enka/dataTypes";
 import {Blend} from "sharp";
 
 export interface PartsConfigTypes {
     /**
+     * そのパーツを表す名称
+     */
+    partsName: string;
+
+    /**
      * 画像のファイル名、もしくはそれを生成する関数
      */
-    imageName: string | ((avatarInfo: AvatarInfo, uid: string) => string);
+    imageName: string | ((avatarInfo: AvatarInfo, uid: string, name: string) => string);
 
     /**
      * その画像の位置を示す
@@ -24,7 +29,7 @@ export interface PartsConfigTypes {
      *
      * @param uid プレイヤーのUID
      */
-    partsCreate?: (avatarInfo: AvatarInfo, uid: string) => Promise<Buffer>;
+    partsCreate?: (avatarInfo: AvatarInfo, uid: string, name: string) => Promise<Buffer>;
 
     /**
      * この画像の中に他のパーツが含まれるならそれの情報

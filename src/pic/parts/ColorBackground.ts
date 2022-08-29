@@ -4,6 +4,7 @@ import sharp from "sharp";
 import {colorBackgroundConfig} from "../../util/ColorBackgroundConfig";
 
 export const colorBackground: PartsConfigTypes = {
+    partsName: "colorBackground",
     imageName: (avatarInfo, uid) => {
         const baseImageName: string = "color_background_Element";
         const element: string = getCharacterByAvatarId(String(avatarInfo.avatarId)).Element;

@@ -16,7 +16,7 @@ export class PartsCreator {
 
     async create(parts: PartsConfigTypes): Promise<Buffer> {
         //パスの取得
-        const imagePath: string = this.imagePathCreator(parts.imageName);
+        const imagePath: string = this.imagePathCreator(parts.imageName, parts.partsName);
 
         //合成するべき画像があれば取得して合成
         if (parts.parts != null) {
@@ -28,7 +28,7 @@ export class PartsCreator {
                     .toBuffer();
             }
             else if (parts.partsCreate != null) {
-                const b = await parts.partsCreate(this.avatarInfo, this.uid);
+                const b = await parts.partsCreate(this.avatarInfo, this.uid, parts.partsName);
 /*
                 await sharp(Buffer.from(b))
                     .png()
@@ -47,7 +47,7 @@ export class PartsCreator {
                     .toBuffer();
             }
             else if (parts.partsCreate != null) {
-                const b = await parts.partsCreate(this.avatarInfo, this.uid);
+                const b = await parts.partsCreate(this.avatarInfo, this.uid, parts.partsName);
 /*
                 await sharp(Buffer.from(b))
                     .png()
@@ -68,10 +68,10 @@ export class PartsCreator {
         }
     }
 
-    private imagePathCreator(imageName: string | ((avatarInfo: AvatarInfo, uid: string) => string)): string {
+    private imagePathCreator(imageName: string | ((avatarInfo: AvatarInfo, uid: string, name: string) => string), name: string): string {
         if (imageName == null) throw "imageNameがnullだよ！";
         else if(typeof imageName === "string") return this.imageBasePath + imageName + this.imageFileType;
-        else return this.imageBasePath + imageName(this.avatarInfo, this.uid) + this.imageFileType;
+        else return this.imageBasePath + imageName(this.avatarInfo, this.uid, name) + this.imageFileType;
     }
 }
 

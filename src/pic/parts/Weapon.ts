@@ -3,6 +3,7 @@ import {svgCreate} from "../SVGGenerator";
 import sharp from "sharp";
 
 export const weapon: PartsConfigTypes = {
+    partsName: "weaponBackground",
     imageName: "weapon_background",
     position: {
         top: 185,
