@@ -1,10 +1,10 @@
-import {PartsConfigTypes} from "../../types/PartsConfigType";
+import {PartsConfigTypes, Position} from "../../types/PartsConfigType";
 import sharp from "sharp";
 import {overlayBackground} from "./OverlayBackground";
 import {character} from "./Charactor";
 import {colorBackground} from "./ColorBackground";
 import {nameLv} from "./NameLv";
-import {artifactBracer, artifactDress, artifactNecklace, artifactRing, artifactShoes} from "./Artifact";
+import {ArtifactBracer, ArtifactDress, ArtifactNecklace, ArtifactRing, ArtifactShoes} from "./Artifact";
 import {uid} from "./Uid";
 import {totalScore} from "./TotalScore";
 import {setBonus} from "./SetBonus";
@@ -12,15 +12,20 @@ import {talent} from "./Talent";
 import {skill} from "./Skill";
 import {weapon} from "./Weapon";
 import {footer} from "./Footer";
+import {AvatarInfo} from "../../types/enka/dataTypes";
 
-export const main: PartsConfigTypes = {
-    partsName: "main",
-    imageName: "main_background",
-    position: {
+export class main implements PartsConfigTypes {
+    readonly partsName: string = "main";
+    readonly position: Position = {
         top: 0,
         left: 0
-    },
-    partsCreate: async (avatarInfo, uid, name) => {
+    };
+
+    imageName(avatarInfo: AvatarInfo, uid: string): string{
+        return "main_background";
+    }
+
+    async partsCreate(avatarInfo: AvatarInfo, uid: string) {
         return sharp({
             create: {
                 width: 1920,
@@ -29,23 +34,24 @@ export const main: PartsConfigTypes = {
                 background: {r: 255, g: 255, b: 255, alpha: 1}
             }
         }).png().toBuffer();
-    },
-    parts: [
-        overlayBackground,
-        colorBackground,
+    }
+
+    readonly parts = [
+        new overlayBackground(),
+        new colorBackground(),
         //character,
-        footer,
-        weapon,
+        new footer(),
+        new weapon(),
         //skill,
         //talent,
         //setBonus,
         //totalScore,
         //uid,
-        //nameLv,
-        artifactBracer,
-        artifactNecklace,
-        artifactShoes,
-        artifactRing,
-        artifactDress,
+        //new nameLv(),
+        new ArtifactNecklace(),
+        new ArtifactBracer(),
+        new ArtifactDress(),
+        new ArtifactShoes(),
+        new ArtifactRing()
     ]
 }

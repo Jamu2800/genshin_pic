@@ -1,22 +1,25 @@
-import {PartsConfigTypes} from "../../types/PartsConfigType";
+import {PartsConfigTypes, Position} from "../../types/PartsConfigType";
 import sharp from "sharp";
 import {svgCreate} from "../SVGGenerator";
 import {getCharacterByAvatarId} from "../../util/CharactersJsonUtil";
 import {artifactBackgroundConfig} from "../../util/ColorBackgroundConfig";
+import {AvatarInfo} from "../../types/enka/dataTypes";
 
-const artifactParts: PartsConfigTypes = {
-    partsName: "artifact",
-    imageName:  (avatarInfo, uid) => {
+abstract class ArtifactParts implements ArtifactParts {
+    abstract readonly position: Position;
+    abstract readonly partsName: string;
+
+    public imageName(avatarInfo: AvatarInfo, uid: string): string {
         const baseImageName: string = "artifact_background_Element";
         const element: string = getCharacterByAvatarId(String(avatarInfo.avatarId)).Element;
 
         return baseImageName.replace("Element", element);
-    },
-    position: undefined,
-    partsCreate: async (avatarInfo, uid) => {
+    }
+
+    async partsCreate(avatarInfo: AvatarInfo, uid: string): Promise<Buffer> {
         const element: string = getCharacterByAvatarId(String(avatarInfo.avatarId)).Element;
 
-        return sharp(await svgCreate({
+        return Buffer.from(await svgCreate({
             width: 350,
             height: 430,
             viewBox: [0, 0, 350, 430],
@@ -33,62 +36,46 @@ const artifactParts: PartsConfigTypes = {
                     fillOpacity: 1
                 }
             }
-        })).png().toBuffer()
-    },
-    parts: []
-};
+        }));
+    }
+}
 
-export const artifactBracer: PartsConfigTypes = {
-    partsName: "artifactBracer",
-    imageName: artifactParts.imageName,
-    position: {
+export class ArtifactBracer extends ArtifactParts{
+    readonly partsName = "artifactBracer"
+    readonly position = {
         top: 720,
         left: 50
-    },
-    partsCreate: artifactParts.partsCreate,
-    parts: artifactParts.parts
-};
+    }
+}
 
-export const artifactNecklace: PartsConfigTypes = {
-    partsName: "artifactNecklace",
-    imageName: artifactParts.imageName,
-    position: {
+export class ArtifactNecklace extends ArtifactParts {
+    readonly partsName = "artifactNecklace";
+    readonly position = {
         top: 720,
         left: 417
-    },
-    partsCreate: artifactParts.partsCreate,
-    parts: artifactParts.parts
-};
+    };
+}
 
-export const artifactShoes: PartsConfigTypes = {
-    partsName: "artifactShoes",
-    imageName: artifactParts.imageName,
-    position: {
+export class ArtifactShoes extends ArtifactParts {
+    readonly partsName = "artifactShoes"
+    readonly position = {
         top: 720,
         left: 785
-    },
-    partsCreate: artifactParts.partsCreate,
-    parts: artifactParts.parts
-};
+    }
+}
 
-export const artifactRing: PartsConfigTypes = {
-    partsName: "artifactRing",
-    imageName: artifactParts.imageName,
-    position: {
+export class ArtifactRing extends ArtifactParts {
+    readonly partsName = "artifactRing"
+    readonly position = {
         top: 720,
         left: 1152
-    },
-    partsCreate: artifactParts.partsCreate,
-    parts: artifactParts.parts
-};
+    }
+}
 
-export const artifactDress: PartsConfigTypes = {
-    partsName: "artifactDress",
-    imageName: artifactParts.imageName,
-    position: {
+export class ArtifactDress extends ArtifactParts {
+    readonly partsName = "artifactDress"
+    readonly position = {
         top: 720,
         left: 1520
-    },
-    partsCreate: artifactParts.partsCreate,
-    parts: artifactParts.parts
-};
+    }
+}

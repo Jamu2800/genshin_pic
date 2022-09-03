@@ -1,16 +1,20 @@
-import {PartsConfigTypes} from "../../types/PartsConfigType";
+import {PartsConfigTypes, Position} from "../../types/PartsConfigType";
 import {svgCreate} from "../SVGGenerator";
-import sharp from "sharp";
+import {AvatarInfo} from "../../types/enka/dataTypes";
 
-export const weapon: PartsConfigTypes = {
-    partsName: "weaponBackground",
-    imageName: "weapon_background",
-    position: {
+export class weapon implements PartsConfigTypes {
+    readonly partsName: string = "weaponBackground";
+    readonly position: Position = {
         top: 185,
         left: 830
-    },
-    partsCreate:async (avatarInfo, uid) => {
-        return sharp(await svgCreate({
+    }
+
+    imageName(avatarInfo: AvatarInfo, uid: string): string {
+        return "weapon_background"
+    }
+
+    async partsCreate(avatarInfo: AvatarInfo, uid: string): Promise<Buffer> {
+        return Buffer.from(await svgCreate({
             width: 463,
             height: 223,
             viewBox: [0, 0, 463, 223],
@@ -27,6 +31,6 @@ export const weapon: PartsConfigTypes = {
                     fillOpacity: 1
                 }
             }
-        })).png().toBuffer()
+        }));
     }
-};
+}
